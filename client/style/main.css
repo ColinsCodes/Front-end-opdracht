@@ -1,0 +1,66 @@
+body {
+    font-family: 'Lato', sans-serif;
+    padding: 0px;
+    margin: 0px;
+
+    --primary-color: #007936;
+    --accent-color: #eee;
+    --light-text-color: rgb(107, 107, 107);
+}
+
+/* Describes the styling of the one and only element with id="mainheader", note the # in front of mainheader */
+#mainheader {
+    background-color: var(--primary-color);
+    font-size: 3rem;
+    color: white;
+}
+
+#logo-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#logo-header img {
+    margin-left: 30px;
+}
+
+main {
+    padding: 25px;
+}
+
+nav
+{
+    height: 2rem;
+    line-height: 2rem;
+    background-color: var(--accent-color);
+}
+
+/* Describes the styling of all elements with class="parkname", note the . in front of parkname */
+.parkname {
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Describes the styling of all <article> elements */
+article {
+    border: 1px solid var(--primary-color);
+    color: var(--light-text-color);
+    margin: 5px;
+}
+
+.order {
+    padding-top: 25px;
+}
+
+.badge {
+    background-color: red;
+    display: none;
+    color: white;
+    font-weight: bold;
+    width: 25px;
+    border-radius: 25px;
+}
