@@ -26,14 +26,25 @@ body {
 }
 
 main {
-    padding: 25px;
+    padding:25px;
+    padding-top:10px;
 }
+a, a:link, a:visited {
+    color:grey;
+    font-family:'Franklin Gothic Medium';
+}
+a:hover {
+    background-color: #ADADAD;
+    color: #525252;
+}
+
 
 nav
 {
     height: 2rem;
     line-height: 2rem;
     background-color: var(--accent-color);
+    text-align:center;
 }
 
 /* Describes the styling of all elements with class="parkname", note the . in front of parkname */
@@ -63,4 +74,28 @@ article {
     font-weight: bold;
     width: 25px;
     border-radius: 25px;
+}
+.topbar {
+    position: sticky;
+    top: 0;
+    text-align:center;
+}
+.orderbutton {
+    display: block;
+    border-radius:0.75em;
+    border-style:solid;
+    border-width:0.25em;
+    background-color: #007936;
+    border-color:#134C25;
+    height:3em; 
+    width:3em; 
+    margin:0.2em;
+
+    
+}
+.orderbutton:hover {
+    border-style:dashed;
+    border-width:0.35em;
+    height:3.5em;
+    width:3.5em;
 }
