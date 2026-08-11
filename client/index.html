@@ -37,24 +37,26 @@
                 </a>
             </nav>
         </header>
-        <main>
+        <main class="articles">
             <article>
                 <div class="parkname">De Efteling</div>
                 <div class="parkdescription">
                     The Netherlands's most famous theme park. Located in Kaatsheuvel.
                 </div>
                 <div class="order">
-                    <div class="prices">
-                        <div class="adultprice">Adults: <span class="sign">&euro;</span><span class="price">32,-</span></div>
-                        <div class="kidsprice">Kids: <span class="sign">&euro;</span><span class="price">32,-</span></div>
-                        <div class="discountrequirement">
-                            <em>Family ticket:</em>
-                            Buy <span class="adults">2</span> adult tickets & <span class="child">2</span> kid tickets for a <span class="percentage">15</span>% discount!
+                    <div>
+                        <div class="prices">
+                            <div class="adultprice">Adults: <span class="sign">&euro;</span><span class="price">32,-</span></div>
+                            <div class="kidsprice">Kids: <span class="sign">&euro;</span><span class="price">32,-</span></div>
+                            <div class="discountrequirement">
+                                <em>Family ticket:</em>
+                                Buy <span class="adults">2</span> adult tickets & <span class="child">2</span> kid tickets for a <span class="percentage">15</span>% discount!
+                            </div>
                         </div>
+                        <label>Adults: </label><input placeholder="adults" type="number" class="numberofadults" />
+                        <label>Kids: </label><input placeholder="kids" type="number" class="numberofkids"/>
+                        <div class="total"><span class="sign">&euro;</span><span class="price">0,-</span></div>
                     </div>
-                    <label>Adults: </label><input placeholder="adults" type="number" class="numberofadults" />
-                    <label>Kids: </label><input placeholder="kids" type="number" class="numberofkids" />
-                    <div class="total"><span class="sign">&euro;</span><span class="price">0,-</span></div>
                     <button class="orderbutton" onclick="orderButtonClicked(event)">
                         <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" style="height:100%; width:100%"/>
                     </button>
@@ -66,19 +68,21 @@
                     The Netherlands smallest theme park.
                 </div>
                 <div class="order">
-                    <div class="prices">
-                        <div class="adultprice">Adults: <span class="sign">&euro;</span><span class="price">25,-</span></div>
-                        <div class="kidsprice">Kids: <span class="sign">&euro;</span><span class="price">20,-</span></div>
-                        <div class="discountrequirement">
-                            <em>Family ticket:</em>
-                            Buy <span class="adults">1</span> adult tickets & <span class="child">2</span> kid tickets for a <span class="percentage">25</span>% discount!
+                    <div>
+                        <div class="prices">
+                            <div class="adultprice">Adults: <span class="sign">&euro;</span><span class="price">25,-</span></div>
+                            <div class="kidsprice">Kids: <span class="sign">&euro;</span><span class="price">20,-</span></div>
+                            <div class="discountrequirement">
+                                <em>Family ticket:</em>
+                                Buy <span class="adults">1</span> adult tickets & <span class="child">2</span> kid tickets for a <span class="percentage">25</span>% discount!
+                            </div>
                         </div>
+                        <label>Adults: </label><input placeholder="adults" type="number" class="numberofadults" />
+                        <label>Kids: </label><input placeholder="kids" type="number" class="numberofkids" />
+                        <div class="total"><span class="sign">&euro;</span><span class="price">0,-</span></div>
                     </div>
-                    <label>Adults: </label><input placeholder="adults" type="number" class="numberofadults" />
-                    <label>Kids: </label><input placeholder="kids" type="number" class="numberofkids" />
-                    <div class="total"><span class="sign">&euro;</span><span class="price">0,-</span></div>
                     <button class="orderbutton" onclick="orderButtonClicked(event)">
-                        <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" style="height:100%; width:100%"/>
+                        <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" style="height:100%; width:100%;"/>
                     </button>
                 </div>
             </article>
@@ -88,17 +92,19 @@
                     Experience magic and wonder.
                 </div>
                 <div class="order">
-                    <div class="prices">
-                        <div class="adultprice">Adults: <span class="sign">&euro;</span><span class="price">30,-</span></div>
-                        <div class="kidsprice">Kids: <span class="sign">&euro;</span><span class="price">30,-</span></div>
-                        <div class="discountrequirement">
-                            <em>Family ticket:</em>
-                            Buy <span class="adults">2</span> adult tickets & <span class="child">2</span> kid tickets for a <span class="percentage">33</span>% discount!
+                    <div>
+                        <div class="prices">
+                            <div class="adultprice">Adults: <span class="sign">&euro;</span><span class="price">30,-</span></div>
+                            <div class="kidsprice">Kids: <span class="sign">&euro;</span><span class="price">30,-</span></div>
+                            <div class="discountrequirement">
+                                <em>Family ticket:</em>
+                                Buy <span class="adults">2</span> adult tickets & <span class="child">2</span> kid tickets for a <span class="percentage">33</span>% discount!
+                            </div>
                         </div>
+                        <label>Adults: </label><input placeholder="adults" type="number" class="numberofadults" />
+                        <label>Kids: </label><input placeholder="kids" type="number" class="numberofkids" />
+                        <div class="total"><span class="sign">&euro;</span><span class="price">0,-</span></div>
                     </div>
-                    <label>Adults: </label><input placeholder="adults" type="number" class="numberofadults" />
-                    <label>Kids: </label><input placeholder="kids" type="number" class="numberofkids" />
-                    <div class="total"><span class="sign">&euro;</span><span class="price">0,-</span></div>
                     <button class="orderbutton" onclick="orderButtonClicked(event)">
                         <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" style="height:100%; width:100%"/>
                     </button>
@@ -111,17 +117,19 @@
                     Need an Adrenaline Rush?
                 </div>
                 <div class="order">
-                    <div class="prices">
-                        <div class="adultprice">Adults: <span class="sign">&euro;</span><span class="price">37,-</span></div>
-                        <div class="kidsprice">Kids: <span class="sign">&euro;</span><span class="price">37,-</span></div>
-                        <div class="discountrequirement">
-                            <em>Family ticket:</em>
-                            Buy <span class="adults">4</span> adult tickets & <span class="child">0</span> kid tickets for a <span class="percentage">10</span>% discount!
+                    <div>
+                        <div class="prices">
+                            <div class="adultprice">Adults: <span class="sign">&euro;</span><span class="price">37,-</span></div>
+                            <div class="kidsprice">Kids: <span class="sign">&euro;</span><span class="price">37,-</span></div>
+                            <div class="discountrequirement">
+                                <em>Family ticket:</em>
+                                Buy <span class="adults">4</span> adult tickets & <span class="child">0</span> kid tickets for a <span class="percentage">10</span>% discount!
+                            </div>
                         </div>
+                        <label>Adults: </label><input placeholder="adults" type="number" class="numberofadults" />
+                        <label>Kids: </label><input placeholder="kids" type="number" class="numberofkids" />
+                        <div class="total"><span class="sign">&euro;</span><span class="price">0,-</span></div>
                     </div>
-                    <label>Adults: </label><input placeholder="adults" type="number" class="numberofadults" />
-                    <label>Kids: </label><input placeholder="kids" type="number" class="numberofkids" />
-                    <div class="total"><span class="sign">&euro;</span><span class="price">0,-</span></div>
                     <button class="orderbutton" onclick="orderButtonClicked(event)">
                         <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" style="height:100%; width:100%"/>
                     </button>
@@ -134,17 +142,19 @@
                     From the Kikkerbaan to the Tikibad.
                 </div>
                 <div class="order">
-                    <div class="prices">
-                        <div class="adultprice">Adults: <span class="sign">&euro;</span><span class="price">22,-</span></div>
-                        <div class="kidsprice">Kids: <span class="sign">&euro;</span><span class="price">19,-</span></div>
-                        <div class="discountrequirement">
-                            <em>Family ticket:</em>
-                            Buy <span class="adults">1</span> adult tickets & <span class="child">3</span> kid tickets for a <span class="percentage">20</span>% discount!
+                    <div>
+                        <div class="prices">
+                            <div class="adultprice">Adults: <span class="sign">&euro;</span><span class="price">22,-</span></div>
+                            <div class="kidsprice">Kids: <span class="sign">&euro;</span><span class="price">19,-</span></div>
+                            <div class="discountrequirement">
+                                <em>Family ticket:</em>
+                                Buy <span class="adults">1</span> adult tickets & <span class="child">3</span> kid tickets for a <span class="percentage">20</span>% discount!
+                            </div>
                         </div>
+                        <label>Adults: </label><input placeholder="adults" type="number" class="numberofadults"/>
+                        <label>Kids: </label><input placeholder="kids" type="number" class="numberofkids" />
+                        <div class="total"><span class="sign">&euro;</span><span class="price">0,-</span></div>
                     </div>
-                    <label>Adults: </label><input placeholder="adults" type="number" class="numberofadults" style="width:4.5em"/>
-                    <label>Kids: </label><input placeholder="kids" type="number" class="numberofkids" />
-                    <div class="total"><span class="sign">&euro;</span><span class="price">0,-</span></div>
                     <button class="orderbutton" onclick="orderButtonClicked(event)">
                         <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" style="height:100%; width:100%"/>
                     </button>
@@ -157,17 +167,19 @@
                     Fun for the whole family in a true western style.
                 </div>
                 <div class="order">
-                    <div class="prices">
-                        <div class="adultprice">Adults: <span class="sign">&euro;</span><span class="price">28,-</span></div>
-                        <div class="kidsprice">Kids: <span class="sign">&euro;</span><span class="price">20,-</span></div>
-                        <div class="discountrequirement">
-                            <em>Family ticket:</em>
-                            Buy <span class="adults">2</span> adult tickets & <span class="child">2</span> kid tickets for a <span class="percentage">50</span>% discount!
+                    <div>
+                        <div class="prices">
+                            <div class="adultprice">Adults: <span class="sign">&euro;</span><span class="price">28,-</span></div>
+                            <div class="kidsprice">Kids: <span class="sign">&euro;</span><span class="price">20,-</span></div>
+                            <div class="discountrequirement">
+                                <em>Family ticket:</em>
+                                Buy <span class="adults">2</span> adult tickets & <span class="child">2</span> kid tickets for a <span class="percentage">50</span>% discount!
+                            </div>
                         </div>
+                        <label>Adults: </label><input placeholder="adults" type="number" class="numberofadults" />
+                        <label>Kids: </label><input placeholder="kids" type="number" class="numberofkids" />
+                        <div class="total"><span class="sign">&euro;</span><span class="price">0,-</span></div>
                     </div>
-                    <label>Adults: </label><input placeholder="adults" type="number" class="numberofadults" />
-                    <label>Kids: </label><input placeholder="kids" type="number" class="numberofkids" />
-                    <div class="total"><span class="sign">&euro;</span><span class="price">0,-</span></div>
                     <button class="orderbutton" onclick="orderButtonClicked(event)">
                         <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" style="height:100%; width:100%"/>
                     </button>
@@ -180,17 +192,19 @@
                     Come and experience our wonderful attractions.
                 </div>
                 <div class="order">
-                    <div class="prices">
-                        <div class="adultprice">Adults: <span class="sign">&euro;</span><span class="price">26,-</span></div>
-                        <div class="kidsprice">Kids: <span class="sign">&euro;</span><span class="price">24,-</span></div>
-                        <div class="discountrequirement">
-                            <em>Family ticket:</em>
-                            Buy <span class="adults">1</span> adult tickets & <span class="child">2</span> kid tickets for a <span class="percentage">25</span>% discount!
+                    <div>
+                        <div class="prices">
+                            <div class="adultprice">Adults: <span class="sign">&euro;</span><span class="price">26,-</span></div>
+                            <div class="kidsprice">Kids: <span class="sign">&euro;</span><span class="price">24,-</span></div>
+                            <div class="discountrequirement">
+                                <em>Family ticket:</em>
+                                Buy <span class="adults">1</span> adult tickets & <span class="child">2</span> kid tickets for a <span class="percentage">25</span>% discount!
+                            </div>
                         </div>
+                        <label>Adults: </label><input placeholder="adults" type="number" class="numberofadults" />
+                        <label>Kids: </label><input placeholder="kids" type="number" class="numberofkids" />
+                        <div class="total"><span class="sign">&euro;</span><span class="price">0,-</span></div>
                     </div>
-                    <label>Adults: </label><input placeholder="adults" type="number" class="numberofadults" />
-                    <label>Kids: </label><input placeholder="kids" type="number" class="numberofkids" />
-                    <div class="total"><span class="sign">&euro;</span><span class="price">0,-</span></div>
                     <button class="orderbutton" onclick="orderButtonClicked(event)">
                         <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" style="height:100%; width:100%"/>
                     </button>

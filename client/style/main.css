@@ -37,6 +37,9 @@ a:hover {
     background-color: #ADADAD;
     color: #525252;
 }
+input {
+    width:4.5em;
+}
 
 
 nav
@@ -61,10 +64,20 @@ article {
     border: 1px solid var(--primary-color);
     color: var(--light-text-color);
     margin: 5px;
-}
+    display: flex;
+    flex-direction: column;
 
+}
+.articles {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 0.5em;
+}
 .order {
     padding-top: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .badge {
@@ -90,7 +103,7 @@ article {
     height:3em; 
     width:3em; 
     margin:0.2em;
-
+    margin-top: auto;
     
 }
 .orderbutton:hover {
