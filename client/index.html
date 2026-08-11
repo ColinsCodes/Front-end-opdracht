@@ -7,8 +7,8 @@
         <meta name="description" content="The ticket shop for Sogyo employees">
         <link rel="stylesheet" href="style/main.css">
         <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+        <script src="src/index.js"></script>
     </head>
-
     <body>
         <header class="topbar";>
             <div id="mainheader" style="padding-top:0.3em; padding-bottom:0.3em;">
@@ -37,9 +37,7 @@
                 </a>
             </nav>
         </header>
-
         <main>
-
             <article>
                 <div class="parkname">De Efteling</div>
                 <div class="parkdescription">
@@ -57,12 +55,11 @@
                     <label>Adults: </label><input placeholder="adults" type="number" class="numberofadults" />
                     <label>Kids: </label><input placeholder="kids" type="number" class="numberofkids" />
                     <div class="total"><span class="sign">&euro;</span><span class="price">0,-</span></div>
-                    <button class="orderbutton">
+                    <button class="orderbutton" onclick="orderButtonClicked(event)">
                         <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" style="height:100%; width:100%"/>
                     </button>
                 </div>
             </article>
-
             <article>
                 <div class="parkname">Madurodam</div>
                 <div class="parkdescription">
@@ -80,12 +77,11 @@
                     <label>Adults: </label><input placeholder="adults" type="number" class="numberofadults" />
                     <label>Kids: </label><input placeholder="kids" type="number" class="numberofkids" />
                     <div class="total"><span class="sign">&euro;</span><span class="price">0,-</span></div>
-                    <button class="orderbutton">
+                    <button class="orderbutton" onclick="orderButtonClicked(event)">
                         <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" style="height:100%; width:100%"/>
                     </button>
                 </div>
             </article>
-
             <article>
                 <div class="parkname">Toverland</div>
                 <div class="parkdescription">
@@ -103,7 +99,7 @@
                     <label>Adults: </label><input placeholder="adults" type="number" class="numberofadults" />
                     <label>Kids: </label><input placeholder="kids" type="number" class="numberofkids" />
                     <div class="total"><span class="sign">&euro;</span><span class="price">0,-</span></div>
-                    <button class="orderbutton">
+                    <button class="orderbutton" onclick="orderButtonClicked(event)">
                         <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" style="height:100%; width:100%"/>
                     </button>
                 </div>
@@ -126,7 +122,7 @@
                     <label>Adults: </label><input placeholder="adults" type="number" class="numberofadults" />
                     <label>Kids: </label><input placeholder="kids" type="number" class="numberofkids" />
                     <div class="total"><span class="sign">&euro;</span><span class="price">0,-</span></div>
-                    <button class="orderbutton">
+                    <button class="orderbutton" onclick="orderButtonClicked(event)">
                         <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" style="height:100%; width:100%"/>
                     </button>
                 </div>
@@ -146,10 +142,10 @@
                             Buy <span class="adults">1</span> adult tickets & <span class="child">3</span> kid tickets for a <span class="percentage">20</span>% discount!
                         </div>
                     </div>
-                    <label>Adults: </label><input placeholder="adults" type="number" class="numberofadults" />
+                    <label>Adults: </label><input placeholder="adults" type="number" class="numberofadults" style="width:4.5em"/>
                     <label>Kids: </label><input placeholder="kids" type="number" class="numberofkids" />
                     <div class="total"><span class="sign">&euro;</span><span class="price">0,-</span></div>
-                    <button class="orderbutton">
+                    <button class="orderbutton" onclick="orderButtonClicked(event)">
                         <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" style="height:100%; width:100%"/>
                     </button>
                 </div>
@@ -172,7 +168,7 @@
                     <label>Adults: </label><input placeholder="adults" type="number" class="numberofadults" />
                     <label>Kids: </label><input placeholder="kids" type="number" class="numberofkids" />
                     <div class="total"><span class="sign">&euro;</span><span class="price">0,-</span></div>
-                    <button class="orderbutton">
+                    <button class="orderbutton" onclick="orderButtonClicked(event)">
                         <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" style="height:100%; width:100%"/>
                     </button>
                 </div>
@@ -195,7 +191,7 @@
                     <label>Adults: </label><input placeholder="adults" type="number" class="numberofadults" />
                     <label>Kids: </label><input placeholder="kids" type="number" class="numberofkids" />
                     <div class="total"><span class="sign">&euro;</span><span class="price">0,-</span></div>
-                    <button class="orderbutton">
+                    <button class="orderbutton" onclick="orderButtonClicked(event)">
                         <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" style="height:100%; width:100%"/>
                     </button>
                 </div>

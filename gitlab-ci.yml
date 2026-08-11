@@ -1,0 +1,22 @@
+image: node:latest
+
+stages:
+  - lint
+
+lint_html:
+  stage: lint
+  script:
+    - npm install -g htmlhint
+    - htmlhint "client/**/*.html"
+
+lint_css:
+  stage: lint
+  script:
+    - npm install -g stylelint stylelint-config-recommended
+    - stylelint "client/style/**/*.css" 
+
+lint_js:
+  stage: lint
+  script:
+    - npm install -g eslint
+    - eslint "client/src/**/*.js"
