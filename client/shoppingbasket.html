@@ -6,8 +6,9 @@
 
         <title>Sogyo Adventure</title>
         <meta name="description" content="The ticket shop for Sogyo employees">
-
+        <link rel="icon" type="image/x-icon" href="client/img/favicon.ico">
         <link rel="stylesheet" href="style/main.css">
+        <script src="src/shoppingbasket.js"></script>
     </head>
 
     <body>
@@ -27,7 +28,7 @@
                 </a>
                 |
                 <a id="shoppingbasket" href="shoppingbasket.html">
-                    Shopping basket <div class="badge">0</div>
+                    Shopping basket <div class="badge"></div>
                 </a>
                 |
                 <a id="myorders" href="orders.html">
@@ -40,8 +41,12 @@
             </nav>
         </header>
 
-        <main>
-            <button id="finalizepaymentbutton">Pay now</button>
+        <main class="orderlist">
+            <section id="orderCartContents">
+            </section>
+            <div id="orderTotal">Total: <span class="sign">&euro;</span> <span id="totalSum">0,-</span></div>
+            <button id="finalizepaymentbutton" onclick="payButtonClicked()"></link>Pay now</button>
+            <button id="clearCart" onclick="clearCartButtonClicked()">Clear cart</button>
         </main>
 
         <template id="ticket">

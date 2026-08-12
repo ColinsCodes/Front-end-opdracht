@@ -82,11 +82,19 @@ article {
 
 .badge {
     background-color: red;
-    display: none;
+    display: inline-flex;
     color: white;
     font-weight: bold;
-    width: 25px;
-    border-radius: 25px;
+    min-width: 9px;
+    height: 20px;
+    padding: 0 0px;
+    border-radius: 9px;
+    align-items:center;
+    padding:0 3px
+    
+}
+.badge.hidden {
+    display:none;
 }
 .topbar {
     position: sticky;
@@ -117,4 +125,10 @@ article {
     background-color: #134C25;
     border-color:#007936;
     cursor:grabbing;
+}
+.orderTotal {
+    max-width:300px;
+}
+.orderlist {
+    padding-left:10%;
 }

@@ -105,6 +105,33 @@ const attractions = [
     }, 
 ]
 
+function sellTickets(unparsedData) {
+    const order = JSON.parse(unparsedData);
+    order.forEach((attraction, index) => {
+        let attractionNum = attractionIdentifier(attraction.name);
+        ticketsSold = attraction.adultTickets + attraction.kidTickets;
+        attractions[attractionNum].available -= ticketsSold;
+    })
+}
+
+function attractionIdentifier(name) {
+    switch(name) {
+            case "De Efteling":
+                return 0;
+            case "Madurodam":
+                return 1;
+            case "Toverland":
+                return 2;
+            case "Walibi Holland":
+                return 3;
+            case "Slagharen":
+                return 4;
+            case "Drievliet":
+                return 5;
+            default: return 100;
+    }
+}
+
 /**
  * A route is like a method call. It has a name, some parameters and some return value.
  * 
@@ -126,12 +153,14 @@ app.get("/api/attractions", function (request, response) {
 
 app.post("/api/placeorder", function (request, response) {
     console.log("Api call received for /placeorder");
-
-    /**
-     * Send the status code 200 back to the clients browser.
-     * This means OK.
-     */
-    response.sendStatus(200);
+    if (request.body) {
+        sellTickets(request.body);
+        response.sendStatus(200);
+    } else {
+        response.sendStatus(400);
+    }
+    
+    
 });
 
 app.get("/api/myorders", function (request, response) {
@@ -151,4 +180,4 @@ app.get("/api/admin/edit", function (request, response) {
  * Make our webserver available on port 8000.
  * Visit localhost:8000 in any browser to see your site!
  */
-app.listen(8000, () => console.log('Example app listening on port 8000!'));
+app.listen(3000, () => console.log('Example app listening on port 3000!'));
