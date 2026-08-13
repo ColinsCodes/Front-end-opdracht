@@ -72,6 +72,8 @@ article {
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 0.5em;
+    padding-left:10%;
+    padding-right:10%;
 }
 .order {
     padding-top: 25px;
@@ -126,9 +128,15 @@ article {
     border-color:#007936;
     cursor:grabbing;
 }
+.orderbutton:disabled {
+    background-color: #808080;
+    border-color:#5C5C5C;
+    cursor:not-allowed;
+}
 .orderTotal {
     max-width:300px;
 }
 .orderlist {
     padding-left:10%;
+    padding-right:10%;
 }

@@ -105,12 +105,25 @@ const attractions = [
     }, 
 ]
 
-function sellTickets(unparsedData) {
-    const order = JSON.parse(unparsedData);
-    order.forEach((attraction, index) => {
-        let attractionNum = attractionIdentifier(attraction.name);
-        ticketsSold = attraction.adultTickets + attraction.kidTickets;
-        attractions[attractionNum].available -= ticketsSold;
+let completedOrders = [];
+
+function saveOrders(data) {
+    data.forEach(order => {
+        completedOrders.push(order);
+    })
+}
+
+function sellTickets(data) {
+    data.forEach((attraction) => {
+        const attractionNum = attractionIdentifier(attraction.attractionName);
+        if (attractions[attractionNum]) {
+            const adultTickets = Number(attraction.adultTickets) || 0;
+            const kidTickets = Number(attraction.kidTickets) || 0
+            const ticketsSold = adultTickets + kidTickets;
+            attractions[attractionNum].available -= ticketsSold;
+        } else {
+            console.error("Attraction not found: ${attraction.name}");
+        }
     })
 }
 
@@ -124,10 +137,12 @@ function attractionIdentifier(name) {
                 return 2;
             case "Walibi Holland":
                 return 3;
-            case "Slagharen":
+            case "Duinrell":
                 return 4;
-            case "Drievliet":
+            case "Slagharen":
                 return 5;
+            case "Drievliet":
+                return 6;
             default: return 100;
     }
 }
@@ -153,14 +168,21 @@ app.get("/api/attractions", function (request, response) {
 
 app.post("/api/placeorder", function (request, response) {
     console.log("Api call received for /placeorder");
-    if (request.body) {
-        sellTickets(request.body);
+    if (request.body.orders) {
+        saveOrders(request.body.orders);
+        sellTickets(request.body.orders);
         response.sendStatus(200);
     } else {
         response.sendStatus(400);
     }
     
     
+});
+
+app.get("/api/completedOrders", function (request, response) {
+    console.log("Api call received for /completedorders");
+
+    response.json(completedOrders)
 });
 
 app.get("/api/myorders", function (request, response) {

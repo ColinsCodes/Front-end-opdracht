@@ -6,8 +6,9 @@
 
         <title>Sogyo Adventure</title>
         <meta name="description" content="The ticket shop for Sogyo employees">
-
+        <link rel="icon" type="image/x-icon" href="client/img/favicon.ico">
         <link rel="stylesheet" href="style/main.css">
+        <script src="src/myorders.js"></script>
     </head>
 
     <body>
@@ -27,7 +28,7 @@
                 </a>
                 |
                 <a id="shoppingbasket" href="shoppingbasket.html">
-                    Shopping basket <div class="badge">0</div>
+                    Shopping basket <div class="badge"></div>
                 </a>
                 |
                 <a id="myorders" href="orders.html">
@@ -40,11 +41,18 @@
             </nav>
         </header>
 
-        <main>
-
-
+        <main class="articles">
+            <template id="completedOrders">
+                <div>
+                    <div class="parkname"></div>
+                    <div>——— Tickets ordered ———</div>
+                    <div>Adults: <span class="adultTicket"></span> Children: <span class="childTicket"></span></div>
+                    <div>Total price: <span class="sign">&euro;</span> <span class="price"></span><span class="zerocents"></span></div>
+                    <div class="ordertime">Order placed: <span class="date"></span> at <span class="time"></span></div>
+                    <div class="deliverytype">Delivery type: <span class="type">Electronic mail</span></div>
+                    <div class="address">At: <span class="address">ClientName@ExampleMail.org</span></div>
+                </div>
+            </template>
         </main>
-
-        <script src="src/myorders.js"></script>
     </body>
 </html>

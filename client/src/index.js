@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const totalOrders = localStorage.getItem("totalOrders") || 0;
-    document.querySelector(".badge").innerHTML = totalOrders;
-    document.querySelector(".badge").classList.toggle('hidden', totalOrders == 0);
+    updateBadge();
     fetch("/api/attractions")
         .then(response => response.json())
         .then(data => {
@@ -12,8 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
             allInputs.forEach(input => {
                 input.addEventListener('input', calculateLiveTotal);
             })
+            document.querySelectorAll(".order").forEach(input => updateTickets(input));
         })
-
 });
 
 function loadAttractions(data) {
@@ -38,48 +36,92 @@ function loadAttractions(data) {
 
 function orderButtonClicked(event) {
     const orderParent = event.target.closest(".order");
+    const cartItem = createCartItem(orderParent);
+    const totalTickets = cartItem.adultTickets + cartItem.kidTickets;
+    if (cartItem.priceTotal && checkTicketAvailability(orderParent, totalTickets)) {
+        saveOrderInCart(cartItem);
+    }
+    resetOrder(orderParent);
+    updateBadge();
+    updateTickets(orderParent);
+}
+
+function createCartItem(orderParent) {
     const ticketsAdults = Math.max(0, Number(orderParent.querySelector(".numberofadults")?.value)) || 0;
     const ticketsKids = Math.max(0, Number(orderParent.querySelector(".numberofkids")?.value)) || 0;
+    const totalTickets = ticketsAdults + ticketsKids;
     const attraction = orderParent.parentNode.querySelector(".parkname").innerHTML;
-    const orderTotal = tallyOrder(orderParent)
-    let cartItem = JSON.parse(localStorage.getItem("order"))
-    cartItem = {
+    const orderTotal = tallyOrder(orderParent)[0]
+    const cartItem = {
         attractionName: attraction,
         adultTickets: ticketsAdults,
         kidTickets: ticketsKids,
-        priceTotal: orderTotal
+        priceTotal: orderTotal,
+        date: new Date()
     };
-    if (orderTotal) {
-        saveOrderInCart(cartItem);
-    }
+    return cartItem;
+}
+
+function updateBadge() {
+    const totalOrders = localStorage.getItem("totalOrders") || 0;
+    document.querySelector(".badge").innerHTML = totalOrders;
+    document.querySelector(".badge").classList.toggle('hidden', totalOrders == 0);
+}
+
+function resetOrder(orderParent) {
     orderParent.querySelector(".numberofadults").value = 0;
     orderParent.querySelector(".numberofkids").value = 0;
     orderParent.querySelector(".total .price").innerHTML = "0,-";
-    const totalOrders = localStorage.getItem("totalOrders");
-    document.querySelector(".badge").innerHTML = totalOrders
-    if (totalOrders) {
-        document.querySelector(".badge").classList.remove('hidden');
-    }
-    if (!totalOrders) {
-        document.querySelector(".badge").classList.add('hidden');
-    }
+}
+
+function checkTicketAvailability(orderParent, totalTickets) {
+    return orderParent.querySelector(".ticketsAvailable .number").innerHTML >= totalTickets;
+}
+
+function checkCartForTickets(orderParent) {
+    const attractionName = orderParent.parentElement.querySelector(".parkname").innerHTML
+    const currentOrders = JSON.parse(localStorage.getItem("orders")) || [];
+    let totalTickets = 0;
+    currentOrders.forEach(order => {
+        if (order.attractionName == attractionName) {
+            totalTickets += order.kidTickets + order.adultTickets;
+        }
+    })
+    return totalTickets;
 }
 
 function calculateLiveTotal(event) {
     const orderParent = event.target.closest(".order");
-    orderParent.querySelector(".total .price").innerHTML = tallyOrder(orderParent) +",-";
+    const talliedOrder = tallyOrder(orderParent)
+    if (talliedOrder[0] == Math.round(talliedOrder[0])) {talliedOrder[0] += ",-"};
+    orderParent.querySelector(".total .price").innerHTML = talliedOrder[0];
+    let discountedAmount = talliedOrder[1];
+    if (discountedAmount == Math.round(discountedAmount)) { discountedAmount += ",-" };
+    if (parseFloat(discountedAmount) > 0) {
+        orderParent.querySelector(".discountAmount").textContent = "Discount unlocked! Amount saved: € " + discountedAmount
+    } else {
+        orderParent.querySelector(".discountAmount").textContent = null
+    }
+}
+
+async function updateTickets(orderParent) {
+    const attractionName = orderParent.parentElement.querySelector(".parkname").innerHTML;
+    orderParent.querySelector(".ticketsAvailable .number").innerHTML = await fetchAvailableTickets(attractionName) - checkCartForTickets(orderParent);
 }
 
 function tallyOrder(orderParent) {
     const ticketsAdults = Math.max(0, Number(orderParent.querySelector(".numberofadults")?.value)) || 0;
     const ticketsKids = Math.max(0, Number(orderParent.querySelector(".numberofkids")?.value)) || 0;
+    const totalTickets = ticketsAdults + ticketsKids;
     const priceAdults = parseInt(orderParent.querySelector(".prices .adultprice .price").innerHTML) || 0;
     const priceKids = parseInt(orderParent.querySelector(".prices .kidsprice .price").innerHTML) || 0;
     const reqAdults = parseInt(orderParent.querySelector(".discountrequirement .adults").innerHTML) || 0;
     const reqKids = parseInt(orderParent.querySelector(".discountrequirement .child").innerHTML) || 0;
     const percentage = parseInt(orderParent.querySelector(".discountrequirement .percentage").innerHTML) || 0;
     const discountMult = 1 - percentage/100;
-
+    
+    orderParent.querySelector(".orderbutton").disabled = !checkTicketAvailability(orderParent, totalTickets);
+    
     let groupAdults = reqAdults > 0 ? Math.floor(ticketsAdults / reqAdults) : 0;
     let groupKids = reqKids > 0 ? Math.floor(ticketsKids / reqKids) : 0;
     let totalDiscounted = Math.min(groupAdults, groupKids);
@@ -94,7 +136,8 @@ function tallyOrder(orderParent) {
     priceRemainder += reqAdults > 0 ? (ticketsAdults % reqAdults) * priceAdults : ticketsAdults*priceAdults;
     priceRemainder += reqKids > 0 ? (ticketsKids % reqKids) * priceKids : ticketsKids * priceKids;
     priceTotal += priceRemainder;
-    return Math.round(priceTotal*100)/100;
+    let totalDiscount = (ticketsAdults*priceAdults + ticketsKids*priceKids) - priceTotal;
+    return [ (Math.round(priceTotal*100)/100), (Math.round(totalDiscount*100)/100) ];
 }
 
 function saveOrderInCart(cartItem) {
@@ -102,4 +145,17 @@ function saveOrderInCart(cartItem) {
     currentOrders.push(cartItem);
     localStorage.setItem("orders", JSON.stringify(currentOrders));
     localStorage.setItem("totalOrders", JSON.stringify(currentOrders.length));
+}
+
+async function fetchAvailableTickets(attractionName) {
+    try {
+        const response = await fetch("/api/attractions");
+        const data = await response.json();
+        const attraction = data.find(item => item.name == attractionName);
+        
+        return attraction ? attraction.available : 0;
+    } catch (error) {
+        console.error("Failed to fetch tickets:", error);
+        return 0;
+    }
 }

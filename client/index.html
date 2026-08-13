@@ -40,10 +40,8 @@
         <main class="articles">
             <template id="attraction">
                 <div>
-                <div class="parkname">parkname</div>
-                <div class="parkdescription">
-                    parkdescription
-                </div>
+                    <div class="parkname"></div>
+                    <div class="parkdescription"></div>
                     <div class="order">
                         <div>
                             <div class="prices">
@@ -60,6 +58,7 @@
                             <label>Adults: </label><input placeholder="adults" type="number" class="numberofadults" />
                             <label>Kids: </label><input placeholder="kids" type="number" class="numberofkids" />
                             <div class="total"><span class="sign">&euro;</span><span class="price">0,-</span></div>
+                            <div><span class="discountAmount"></span></div>
                         </div>
                         <button class="orderbutton" onclick="orderButtonClicked(event)">
                             <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" style="height:100%; width:100%"/>
@@ -67,7 +66,6 @@
                     </div>
                 </div>
             </template>
-
         </main>
     </body>
 </html>
