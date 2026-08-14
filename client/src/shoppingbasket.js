@@ -19,19 +19,19 @@ function clearCartButtonClicked() {
 function loadOrders(allOrders) {
     document.querySelector("#orderCartContents").innerHTML = allOrders.map((order, index) => `
         <article class="orderTotal">
-            <div class="parkname">
+            <div class="parkname" title="Name of amusement park.">
                 <span>${order.attractionName}</span>
             </div>
             <div>
                 Number of tickets:
             </div>
-            <div> 
+            <div title="Number of tickets."> 
                 Adults: <span>${order.adultTickets}</span> Kids: <span>${order.kidTickets}</span>
             </div>
-            <div>
+            <div title ="Calculated price for this item, including discounts.">
                 Price: <span class="sign">&euro;</span> <span class="pricetag">${order.priceTotal}</span>
             </div>
-            <div>
+            <div title="Remove this item from cart.">
                 <button class="cancelItem" onclick="cancelItem(${index})">Click to cancel item</button>
             </div>
         </article>
@@ -68,7 +68,7 @@ function payButtonClicked() {
                 clearCartButtonClicked();
                 window.location.href = "orderplaced.html";
             } else {
-                console.error("Uh oh, an error occurred!" + response.status)
+                console.error("Uh oh, an error occurred! " + response.status)
             }
 
         })

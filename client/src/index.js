@@ -69,8 +69,8 @@ function updateBadge() {
 }
 
 function resetOrder(orderParent) {
-    orderParent.querySelector(".numberofadults").value = 0;
-    orderParent.querySelector(".numberofkids").value = 0;
+    orderParent.querySelector(".numberofadults").value =  null;
+    orderParent.querySelector(".numberofkids").value = null;
     orderParent.querySelector(".total .price").innerHTML = "0,-";
 }
 
@@ -124,7 +124,12 @@ function tallyOrder(orderParent) {
     
     let groupAdults = reqAdults > 0 ? Math.floor(ticketsAdults / reqAdults) : 0;
     let groupKids = reqKids > 0 ? Math.floor(ticketsKids / reqKids) : 0;
-    let totalDiscounted = Math.min(groupAdults, groupKids);
+    let totalDiscounted = 0;
+    if (reqAdults && reqKids) {
+        totalDiscounted = Math.min(groupAdults, groupKids);
+    } else {
+        totalDiscounted = Math.max(groupAdults, groupKids);
+    }
     let priceTotal = 0;
     let priceRemainder = 0;
 

@@ -1,16 +1,20 @@
 <!doctype html>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html lang="nl">
     <head>
         <meta charset="utf-8">
-
         <title>Sogyo Adventure</title>
         <meta name="description" content="The ticket shop for Sogyo employees">
-
+        <link rel="icon" type="image/x-icon" href="client/img/favicon.ico">
         <link rel="stylesheet" href="style/main.css">
-        <link rel="stylesheet" href="style/map.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+        <script src="src/map.js"></script>
     </head>
-
     <body>
         <header class="topbar";>
             <div id="mainheader" style="padding-top:0.3em; padding-bottom:0.3em;">
@@ -18,36 +22,31 @@
                 Sogyo Adventure
             </div>
             <nav>
-                <a id="home" href="index.html">
+                <a id="home" href="index.html" title="Return to homepage.">
                     Home
                 </a>
                 |
-                <a id="map" href="map.html">
+                <a id="map" href="map.html" title="Current page.">
                     Discover
                 </a>
                 |
-                <a id="shoppingbasket" href="shoppingbasket.html">
-                    Shopping basket <div class="badge">0</div>
+                <a id="shoppingbasket" href="shoppingbasket.html" title="Check out the cart.">
+                    Shopping basket <div class="badge"></div>
                 </a>
                 |
-                <a id="myorders" href="orders.html">
+                <a id="myorders" href="orders.html" title="Check out your placed orders.">
                     My orders
                 </a>
                 |
-                <a id="admin" href="admin.html">
+                <a id="admin" href="admin.html" title="For administrators only.">
                     Admin
                 </a>
             </nav>
         </header>
-
         <main>
-
             <div id="discoverablemap">
 
             </div>
-
         </main>
-
-        <script src="src/index.js"></script>
     </body>
 </html>
